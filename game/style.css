@@ -1,0 +1,81 @@
+/* Kestrel Isles: storm-dusk palette — deep indigo, ember orange, electric cyan. */
+
+:root {
+  --night: #0d0b1f;
+  --ink: rgba(10, 9, 26, 0.78);
+  --cyan: #7ff6ff;
+  --ember: #ff8a4c;
+  --rose: #ff5a7a;
+  --text: #ecebff;
+  --muted: #a9a6cf;
+  --line: rgba(127, 246, 255, 0.28);
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: var(--night); color: var(--text); }
+[hidden] { display: none !important; }
+#view, #hud { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+#view { outline: none; touch-action: none; }
+#hud { pointer-events: none; }
+
+.panel { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 24px; }
+body[data-screen='fly'] .panel { display: none; }
+
+/* title: logo top-left over the circling aircraft, missions down the right */
+.title-panel { justify-content: space-between; align-items: stretch; flex-direction: column; padding: 44px 56px; background: linear-gradient(90deg, rgba(13, 11, 31, 0.0) 35%, rgba(13, 11, 31, 0.82) 72%); }
+.logo { max-width: 560px; }
+.logo svg { width: 120px; color: var(--cyan); filter: drop-shadow(0 0 12px rgba(127, 246, 255, 0.6)); }
+.logo .sun { fill: var(--ember); }
+.logo h1 { margin: 6px 0 4px; font: 900 76px/0.95 'Segoe UI', system-ui, sans-serif; letter-spacing: -0.02em; text-transform: uppercase; text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6); }
+.logo h1 span { color: var(--ember); display: block; }
+.logo p { margin: 8px 0 0; font-size: 18px; color: var(--cyan); letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; }
+.menu { position: absolute; right: 56px; top: 50%; transform: translateY(-50%); width: min(440px, 44vw); }
+.missions { display: flex; flex-direction: column; gap: 10px; }
+.mission { display: grid; grid-template-columns: 46px 1fr auto; align-items: center; gap: 14px; text-align: left; padding: 14px 16px; border-radius: 14px;
+  border: 1px solid var(--line); background: var(--ink); color: var(--text); font: inherit; cursor: pointer; backdrop-filter: blur(6px); transition: transform 0.12s, border-color 0.12s; }
+.mission:hover, .mission:focus-visible { transform: translateX(-6px); border-color: var(--cyan); outline: none; box-shadow: 0 0 0 2px rgba(127, 246, 255, 0.25), 0 10px 30px rgba(0, 0, 0, 0.4); }
+.m-num { font: 800 24px ui-monospace, Consolas, monospace; color: var(--ember); }
+.m-body b { display: block; font-size: 18px; }
+.m-body small { color: var(--muted); font-size: 13px; }
+.m-best { text-align: right; color: var(--cyan); font-size: 15px; letter-spacing: 2px; }
+.m-best em { display: block; font-style: normal; font-size: 12px; color: var(--muted); letter-spacing: 0; }
+.tip { max-width: 520px; margin: 0; padding: 12px 16px; border-left: 3px solid var(--ember); background: rgba(13, 11, 31, 0.55); font-size: 14px; color: var(--muted); }
+.tip b { color: var(--ember); text-transform: uppercase; font-size: 11px; letter-spacing: 0.15em; margin-right: 8px; }
+.foot { margin: 6px 0 0; font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
+
+/* cards for briefing, pause and debrief */
+.brief-panel, .pause-panel, .debrief-panel { background: radial-gradient(ellipse at center, rgba(13, 11, 31, 0.45), rgba(13, 11, 31, 0.85)); }
+.debrief-panel { justify-content: flex-end; padding-right: 7vw; background: linear-gradient(90deg, rgba(13, 11, 31, 0) 30%, rgba(13, 11, 31, 0.85) 65%); }
+.card { width: min(620px, 92vw); max-height: 92vh; overflow: auto; padding: 28px 32px; border-radius: 20px; background: var(--ink); border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); }
+.card.small { width: min(360px, 92vw); }
+.kicker { margin: 0; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.2em; font-size: 12px; font-weight: 700; }
+.card h2 { margin: 6px 0 10px; font-size: 38px; font-weight: 900; letter-spacing: -0.01em; }
+.card h3 { margin: 20px 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ember); }
+.lead { color: var(--text); opacity: 0.9; line-height: 1.5; margin: 0 0 12px; }
+.goals { display: flex; gap: 8px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
+.goals li { padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line); font-size: 13px; color: var(--cyan); }
+.controls { width: 100%; border-collapse: collapse; font-size: 14px; }
+.controls th { text-align: left; width: 42%; padding: 5px 0; font-weight: 400; }
+.controls td { color: var(--muted); padding: 5px 0; }
+kbd { font: 600 12px ui-monospace, Consolas, monospace; color: var(--cyan); background: rgba(127, 246, 255, 0.08); border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; }
+.row { display: flex; gap: 10px; justify-content: flex-end; margin-top: 22px; flex-wrap: wrap; }
+.col { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.btn { font: 700 15px inherit; font-family: inherit; padding: 12px 22px; border-radius: 12px; border: 1px solid var(--cyan); background: var(--cyan); color: #0b1020; cursor: pointer; }
+.btn:hover, .btn:focus-visible { filter: brightness(1.1); outline: 2px solid #fff; outline-offset: 2px; }
+.btn.ghost { background: transparent; color: var(--cyan); }
+.stars { margin: 0; font-size: 40px; letter-spacing: 6px; color: var(--ember); text-shadow: 0 0 18px rgba(255, 138, 76, 0.6); }
+.score { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 15px; }
+.score th { text-align: left; font-weight: 400; color: var(--muted); padding: 7px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.score td { text-align: right; font: 700 15px ui-monospace, Consolas, monospace; color: var(--cyan); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.score td.neg { color: var(--rose); }
+.score .total th { color: var(--text); font-weight: 800; font-size: 18px; border: 0; padding-top: 12px; }
+.score .total td { font-size: 26px; color: var(--ember); border: 0; padding-top: 12px; }
+.best { color: var(--muted); font-size: 13px; margin: 6px 0 0; }
+body[data-result='failed'] #debrief-title { color: var(--rose); }
+
+@media (max-width: 900px) {
+  .title-panel { padding: 24px; }
+  .logo h1 { font-size: 48px; }
+  .menu { position: static; transform: none; width: 100%; margin-top: 16px; }
+}

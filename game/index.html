@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kestrel Isles — storm-light bush flying</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23140f2a'/%3E%3Cpath d='M4 19l12-6 12 6-12-2z' fill='%237ff6ff'/%3E%3Ccircle cx='24' cy='9' r='3' fill='%23ff8a4c'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body data-screen="title">
+<canvas id="view" tabindex="0" aria-label="Kestrel Isles flight view"></canvas>
+<canvas id="hud" aria-hidden="true"></canvas>
+
+<section data-panel="title" class="panel title-panel" aria-labelledby="logo">
+  <header class="logo">
+    <svg viewBox="0 0 120 48" aria-hidden="true"><path d="M6 30 L60 10 L114 30 L60 23 Z" fill="currentColor"/><path d="M52 24 L60 40 L68 24" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="98" cy="10" r="5" class="sun"/></svg>
+    <h1 id="logo">Kestrel <span>Isles</span></h1>
+    <p>Bush flying at the edge of the storm</p>
+  </header>
+  <div class="menu" role="group" aria-label="Missions"><div id="missions" class="missions"></div></div>
+  <p class="tip"><b>Pilot’s note</b> <span id="tips"></span></p>
+  <p class="foot">Keyboard + mouse · plays offline · N mutes sound</p>
+</section>
+
+<section data-panel="brief" class="panel brief-panel" aria-labelledby="brief-name" hidden>
+  <div class="card">
+    <p class="kicker" id="brief-tag"></p>
+    <h2 id="brief-name"></h2>
+    <p id="brief-text" class="lead"></p>
+    <ul id="brief-goals" class="goals"></ul>
+    <h3>Controls</h3>
+    <table class="controls"><tbody id="controls"></tbody></table>
+    <div class="row"><button id="back" class="btn ghost">Back</button><button id="start" class="btn">Fly ▸</button></div>
+  </div>
+</section>
+
+<section data-panel="pause" class="panel pause-panel" aria-label="Paused" hidden>
+  <div class="card small">
+    <h2>Paused</h2>
+    <div class="col"><button id="resume" class="btn">Resume</button><button id="restart" class="btn ghost">Restart sortie</button><button id="to-menu" class="btn ghost">Missions</button></div>
+  </div>
+</section>
+
+<section data-panel="debrief" class="panel debrief-panel" aria-labelledby="debrief-title" hidden>
+  <div class="card">
+    <p class="kicker">Debrief</p>
+    <h2 id="debrief-title"></h2>
+    <p id="debrief-stars" class="stars" aria-label="Stars"></p>
+    <p id="debrief-reason" class="lead"></p>
+    <table class="score"><tbody id="debrief-lines"></tbody></table>
+    <p id="debrief-best" class="best"></p>
+    <div class="row"><button id="debrief-menu" class="btn ghost">Missions</button><button id="retry" class="btn ghost">Fly again</button><button id="next" class="btn">Next mission ▸</button></div>
+  </div>
+</section>
+
+<div id="nogl" class="panel" hidden><div class="card small"><h2>WebGL2 needed</h2><p id="nogl-msg"></p></div></div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

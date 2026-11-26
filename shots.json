@@ -1,0 +1,6 @@
+[
+  { "name": "1-coast-run-storm.png", "query": "?shot=cover" },
+  { "name": "2-cockpit-final-approach.png", "query": "?shot=cockpit" },
+  { "name": "3-title.png", "query": "?shot=menu" },
+  { "name": "4-debrief.png", "query": "?shot=debrief" }
+]
